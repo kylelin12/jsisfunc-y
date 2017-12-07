@@ -4,23 +4,35 @@ function fib(nth) {
     return fib(nth - 1) + fib(nth - 2);
 };
 
+function ordinalsuffix(n) {
+    var i = n % 10,
+        j = n % 100;
+    if (i == 1 && j != 11) {
+        return n + "st";
+    }
+    if (i == 2 && j != 12) {
+        return n + "nd";
+    }
+    if (i == 3 && j != 13) {
+        return n + "rd";
+    }
+    return n + "th";
+};
+
 function testfib() {
     var a;
 
-    for (a = 1; a < 21; a++) {
-        console.log("The " + a + "th number in the fibonacci sequence is: " + fib(a));
+    for (a = 0; a < 42; a++) {
+        var counter = a + 1;
+        console.log("The " + ordinalsuffix(counter) + " number in the fibonacci sequence is: " + fib(a));
     }
 };
 
 function gcd(a, b) {
-    while (a != b) {
-        if (a > b)
-            a = a - b;
-        else
-            b = b - a;
-    }
-
-    return a;
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 };
 
 function testgcd() {
@@ -36,7 +48,7 @@ function randomIndex(array) {
 
     console.log(array);
 
-    var ranIndex = function(array) {
+    var ranIndex = function (array) {
         var size = array.length;
         var randI = Math.floor(Math.random() * size);
         return array[randI];
