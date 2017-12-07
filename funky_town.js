@@ -46,7 +46,7 @@ function testgcd() {
 
 function randomIndex(array) {
 
-    console.log(array);
+    console.log("Generating random element from: " + array);
 
     var ranIndex = function (array) {
         var size = array.length;
@@ -54,7 +54,7 @@ function randomIndex(array) {
         return array[randI];
     };
 
-    console.log("Randomly selected index: " + ranIndex(array));
+    console.log("Randomly selected element: " + ranIndex(array));
 };
 
 var students = [
